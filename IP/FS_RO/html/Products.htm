@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SEGGER Middleware (AJAX example)</title>
+    <link href="Styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>SEGGER Middleware (AJAX example)</header>
+    <script>
+      //
+      // Create a XMLHttpRequest.
+      // Tries to handle the different browser implementation
+      //
+      function _CreateRequest() {
+        try {
+          request = new XMLHttpRequest();
+        } catch (tryMS) {
+          try {
+            request = new ActiveXObject("Msxml2.XMLHTTP");
+          } catch (otherMS) {
+            try {
+              request = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (failed) {
+              request = null;
+            }
+          }
+        }
+        return request;
+      }
+      //
+      // Checks if the request was successful and updates the product details.
+      //
+      function _DisplayDetails() {
+        if (request.readyState == 4) { // Is the request complete ?
+          if (request.status == 200) { // Status OK ?
+            detailDiv = document.getElementById("Description");
+            detailDiv.innerHTML = request.responseText;
+          }
+        }
+      }     
+      //
+      // Request the details from the server.
+      // 
+      function _GetDetails(itemName) {
+        request = _CreateRequest();
+        if (request == null) {
+          alert("Unable to create request");
+          return;
+        }
+        var url= "../GetDetails.cgi?ImageID=" + escape(itemName);
+        request.open("GET", url, true);
+        request.onreadystatechange = _DisplayDetails;
+        request.send(null);
+      }
+      //
+      // Initializes the elements required for the AJAX sample.
+      //
+      function _InitPage() {
+        //
+        // Find the thumbnails on the page
+        //
+        thumbs = document.getElementById("Thumbnails").getElementsByTagName("img");
+        //
+        // Set the handler for each image
+        //
+        for (var i = 0; i < thumbs.length; i++) {
+          image = thumbs[i];
+          //
+          // Create the onclick function
+          //
+          image.onclick = function() {
+            //
+            // Find the image name
+            //
+            detailURL = this.title + '_Det.jpg';
+            document.getElementById("ProductImage").src = detailURL;
+            _GetDetails(this.title);
+          }
+        }
+        _GetDetails();
+      }      
+      window.onload = _InitPage;    
+    </script>
+    <div id="Content" class="content">
+    
+      <div id="Details" class="details">
+        <img src="Empty.gif" id="ProductImage">
+        <div id="Description" class="description"></div>
+      </div>
+      
+      <div id="Thumbnails" class="thumbnails">
+        <img src="OS_Pic.jpg"   alt="embOS"   title="OS"   id="embOS"><br>
+        <hr>
+        <img src="IP_Pic.jpg"   alt="emNet"   title="IP"   id="emNet"><br>
+        <hr>
+        <img src="FS_Pic.jpg"   alt="emFile"  title="FS"   id="emFile"><br>
+        <hr>
+        <img src="GUI_Pic.jpg"  alt="emWin"   title="GUI"  id="emWin"><br>
+        <hr>
+        <img src="BTL_Pic.jpg"  alt="emLoad"  title="BTL"  id="emload"><br>
+        <hr>
+        <img src="USBD_Pic.jpg" alt="emUSBD"  title="USBD" id="emUSBD"><br>
+        <hr>
+        <img src="USBH_Pic.jpg" alt="emUSBH"  title="USBH" id="emUSBH"><br>
+      </div>
+    </div>
+    <img src="Logo.gif" alt="Segger company logo" class="logo">  
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File upload</title>
+    <link href="Styles.css" rel="stylesheet">
+  </head>
+    <body>
+    <script type="text/javascript">
+      var client = null;
+
+      function fileChange() {
+        var fileList = document.getElementById("fileA").files;       
+        var file = fileList[0];
+        if(!file) {
+          return;
+        }       
+        document.getElementById("fileName").innerHTML = 'Name:   ' + file.name;
+        document.getElementById("fileSize").innerHTML = 'Size:   ' + file.size + ' Bytes';
+        document.getElementById("fileType").innerHTML = 'Type:   ' + file.type;
+        document.getElementById("progress").value = 0;
+        document.getElementById("percent").innerHTML = "0%, please click the Upload button.";
+        document.getElementById("link").innerHTML = "";
+      }
+    
+      function uploadFile() {
+        var file = document.getElementById("fileA").files[0];
+        var formData = new FormData();
+        client = new XMLHttpRequest();
+        var prog = document.getElementById("progress");
+   
+        if(!file) {
+          return;
+        }
+        prog.value = 0;
+        prog.max = 100;
+        document.getElementById("percent").innerHTML = "0%, uploading.";
+        formData.append("Data", file); 
+        client.onerror = function(e) {
+            alert("onError");
+        }; 
+        client.onload = function(e) {
+            document.getElementById("percent").innerHTML = "100%, upload done.";
+            prog.value = prog.max;
+            document.getElementById("link").innerHTML = "<a href=\"" + file.name + "\">Go to " + file.name +"</a>";
+        };
+        client.upload.onprogress = function(e) {
+            var p = Math.round(100 / e.total * e.loaded);
+            document.getElementById("progress").value = p;            
+            document.getElementById("percent").innerHTML = p + "%, uploading.";
+        }; 
+        client.onabort = function(e) {
+            alert("Upload aborted!");
+        }; 
+        client.open("post", "Upload.cgi");
+        client.send(formData);
+      }
+   
+      function uploadAbort() {
+        if(client instanceof XMLHttpRequest) {
+          client.abort();
+        }
+      }
+    </script>
+    <header>File upload</header>
+    <div class="content">
+      <form action="" method="post" enctype="multipart/form-data">
+        <input name="Data" type="file" id="fileA" onchange="fileChange();"/>
+        <input name="upload" value="Upload" type="button" onclick="uploadFile();" />
+        <input name="abort" value="Cancel" type="button" onclick="uploadAbort();" />
+      </form>
+      <div>
+        <div id="fileName"></div>
+        <div id="fileSize"></div>
+        <div id="fileType"></div>
+        <progress id="progress"></progress> <span id="percent"></span>
+        <div id="link"></div>
+      </div>    
+    </div>
+    <img src="Logo.gif" alt="Segger company logo" class="logo">  
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

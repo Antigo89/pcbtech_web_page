@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form sample - Request method "POST"</title>
+    <link href="Styles.css" rel="stylesheet">
+  </head>
+    <body>
+    <header>Form sample - Request method "POST"</header>
+    <div class="content">
+      <h2>Percentage sample ("POST")</h2>    
+      <div class="frame">
+        <table width=100%>
+          <tr>
+            <td>
+              <div class="percentage">
+                <table width=<!--#exec cgi="Percentage"-->%>
+                  <tr><td>&nbsp;</td></tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>    
+      <div class="proportion">
+        <table>
+          <tr>
+            <td width="10%">00</td>
+            <td width="10%">10</td>
+            <td width="10%">20</td>
+            <td width="10%">30</td>
+            <td width="10%">40</td>
+            <td width="10%">50</td>
+            <td width="10%">60</td>
+            <td width="10%">70</td>
+            <td width="10%">80</td>
+            <td width="10%">90</td>
+          </tr>
+        </table>
+      </div>
+      <form action="" method="POST">
+        The current value is <!--#exec cgi="Percentage"-->%.<p>
+        Change percentage: <input name="Percentage" type="text" size="4" maxlength="4" value="<!--#exec cgi="Percentage"-->"><p>
+        <input type="submit" value="Change">
+      </form>  
+      <hr>
+      <h2>Please enter your name...</h2>
+      <h3>Hello <!--#exec cgi="FirstName"--> <!--#exec cgi="LastName"-->!</h3>
+      <form action="" method="POST">
+        <label for="FirstName">First name: </label><input name="FirstName" type="text" size="30" maxlength="30" value="<!--#exec cgi="FirstName"-->">&nbsp;
+        <label for="LastName">Last name: </label><input name="LastName"  type="text" size="30" maxlength="30" value="<!--#exec cgi="LastName"-->">&nbsp;
+        <input type="submit" value="Change">
+      </form>
+      <hr>           
+      <h2>Set/Clear LEDs:</h2>
+      <form action="" method="POST">
+        <input <!--#exec cgi="LED0"--> type="checkbox" name="LED0">LED0 &nbsp; 
+        <input <!--#exec cgi="LED1"--> type="checkbox" name="LED1">LED1 &nbsp; 
+        <input <!--#exec cgi="LED2"--> type="checkbox" name="LED2">LED2 &nbsp; 
+        <input <!--#exec cgi="LED3"--> type="checkbox" name="LED3">LED3 &nbsp; 
+        <input <!--#exec cgi="LED4"--> type="checkbox" name="LED4">LED4 &nbsp; 
+        <input <!--#exec cgi="LED5"--> type="checkbox" name="LED5">LED5 &nbsp; 
+        <input <!--#exec cgi="LED6"--> type="checkbox" name="LED6">LED6 &nbsp; 
+        <input <!--#exec cgi="LED7"--> type="checkbox" name="LED7">LED7 &nbsp; 
+        <input type="submit" value="Change" name = "SetLEDs">
+      </form>
+      <hr>
+      <h2>Javascript sample:</h2>
+      <form action="">
+        <textarea cols="20" rows="4" name="Textarea"></textarea><p>
+        <input type="button" name="text1" value="show text 1" onclick="this.form.Textarea.value='This is text 1.'">
+        <input type="button" name="text2" value="show text 2" onclick="this.form.Textarea.value='This is text 2.'">
+      </form>    
+    </div>
+    <img src="Logo.gif" alt="Segger company logo" class="logo">  
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

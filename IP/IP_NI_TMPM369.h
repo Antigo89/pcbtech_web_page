@@ -1,68 +1,67 @@
 /*********************************************************************
-*                     SEGGER Microcontroller GmbH                    *
+*                   (c) SEGGER Microcontroller GmbH                  *
 *                        The Embedded Experts                        *
 **********************************************************************
 *                                                                    *
-*       (c) 1995 - 2022 SEGGER Microcontroller GmbH                  *
+*       (c) 2007 - 2022    SEGGER Microcontroller GmbH               *
 *                                                                    *
-*       Internet: segger.com  Support: support_embos@segger.com      *
+*       www.segger.com     Support: www.segger.com/ticket            *
 *                                                                    *
 **********************************************************************
 *                                                                    *
-*       embOS * Real time operating system                           *
+*       emNet * TCP/IP stack for embedded applications               *
+*                                                                    *
 *                                                                    *
 *       Please note:                                                 *
 *                                                                    *
 *       Knowledge of this file may under no circumstances            *
-*       be used to write a similar product or a real-time            *
-*       operating system for in-house use.                           *
+*       be used to write a similar product for in-house use.         *
 *                                                                    *
 *       Thank you for your fairness !                                *
 *                                                                    *
 **********************************************************************
 *                                                                    *
-*       OS version: V5.18.0.0                                        *
+*       emNet version: V3.42.6                                       *
 *                                                                    *
 **********************************************************************
-
--------------------------- END-OF-HEADER -----------------------------
-File    : OS_StartLEDBlink.c
-Purpose : embOS sample program running two simple tasks, each toggling
-          an LED of the target hardware (as configured in BSP.c).
+----------------------------------------------------------------------
+File    : IP_NI_TMPM369.h
+Purpose : Driver specific header file for the TOSHIBA TMPM369
+--------  END-OF-HEADER  ---------------------------------------------
 */
 
-#include "RTOS.h"
-#include "BSP.h"
+#ifndef IP_NI_TMPM369_H
+#define IP_NI_TMPM369_H
 
-static OS_STACKPTR int StackHP[128], StackLP[128];  // Task stacks
-static OS_TASK         TCBHP, TCBLP;                // Task control blocks
-
-static void HPTask(void) {
-  while (1) {
-    BSP_ToggleLED(0);
-    OS_TASK_Delay(50);
-  }
-}
-
-static void LPTask(void) {
-  while (1) {
-    BSP_ToggleLED(1);
-    OS_TASK_Delay(200);
-  }
-}
+#if defined(__cplusplus)
+extern "C" {  // Make sure we have C-declarations in C++ programs
+#endif
 
 /*********************************************************************
 *
-*       main()
+*       Public data
+*
+**********************************************************************
 */
-int main(void) {
-  OS_Init();    // Initialize embOS
-  OS_InitHW();  // Initialize required hardware
-  BSP_Init();   // Initialize LED ports
-  OS_TASK_CREATE(&TCBHP, "HP Task", 100, HPTask, StackHP);
-  OS_TASK_CREATE(&TCBLP, "LP Task",  50, LPTask, StackLP);
-  OS_Start();   // Start embOS
-  return 0;
-}
+extern const IP_HW_DRIVER IP_Driver_TMPM369;
+
+/*********************************************************************
+*
+*       Public code
+*
+**********************************************************************
+*/
+// None.
+
+#if defined(__cplusplus)
+  }           // Make sure we have C-declarations in C++ programs
+#endif
+
+/********************************************************************/
+
+#endif        // Avoid multiple inclusion
 
 /*************************** End of file ****************************/
+
+
+

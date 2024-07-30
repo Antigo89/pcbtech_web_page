@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form sample - IP Configuration</title>
+    <link href="Styles.css" rel="stylesheet">
+    <script type="text/javascript">
+      function _UpdateFormFields() {
+        var DHCPActive;
+
+        for (i=0; i < document.IPConfig.AssignIPType.length; i++) {
+          if (document.IPConfig.AssignIPType[i].checked) {
+            DHCPActive = document.IPConfig.AssignIPType[i].value;
+          }
+        }
+        if (DHCPActive == 1) {
+          document.IPConfig.IPAddr_0.disabled    = true;
+          document.IPConfig.IPAddr_1.disabled    = true;
+          document.IPConfig.IPAddr_2.disabled    = true;
+          document.IPConfig.IPAddr_3.disabled    = true;
+          document.IPConfig.IPMask_0.disabled    = true;
+          document.IPConfig.IPMask_1.disabled    = true;
+          document.IPConfig.IPMask_2.disabled    = true;
+          document.IPConfig.IPMask_3.disabled    = true;
+          document.IPConfig.IPGateway_0.disabled = true;
+          document.IPConfig.IPGateway_1.disabled = true;
+          document.IPConfig.IPGateway_2.disabled = true;
+          document.IPConfig.IPGateway_3.disabled = true;
+        } else {
+          document.IPConfig.IPAddr_0.disabled    = false;
+          document.IPConfig.IPAddr_1.disabled    = false;
+          document.IPConfig.IPAddr_2.disabled    = false;
+          document.IPConfig.IPAddr_3.disabled    = false;
+          document.IPConfig.IPMask_0.disabled    = false;
+          document.IPConfig.IPMask_1.disabled    = false;
+          document.IPConfig.IPMask_2.disabled    = false;
+          document.IPConfig.IPMask_3.disabled    = false;
+          document.IPConfig.IPGateway_0.disabled = false;
+          document.IPConfig.IPGateway_1.disabled = false;
+          document.IPConfig.IPGateway_2.disabled = false;
+          document.IPConfig.IPGateway_3.disabled = false;
+        }
+      }
+    </script>
+    <style>
+        table { border: 0; }
+        th { border: 0; }
+        td { border: 0; text-align: left; }
+    </style>
+  </head>
+    <body onload="_UpdateFormFields()">
+    <header>Form sample - IP Configuration</header>
+    <div class="content">
+    <form name="IPConfig" action="" method="POST">
+    <table>
+        <tr>
+            <td><B>Configuration:</B></td><td>
+            <input onchange="_UpdateFormFields()" type="RADIO" NAME="AssignIPType" VALUE="1" <!--#exec cgi="AssignIPType_Auto"-->><B>Automatic (DHCP)</B>
+            </td></tr><tr><td>  </td><td>
+            <input onchange="_UpdateFormFields()" type="RADIO" NAME="AssignIPType" VALUE="0" <!--#exec cgi="AssignIPType_Manual"-->><B>Manual</B>
+            </td>
+          </tr>
+          <tr>
+            <td COLSPAN="2">
+              <table>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td><B>IP address:</B></td>
+            <td>
+              <INPUT name="IPAddr_0" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPAddr_0"-->">.
+              <INPUT name="IPAddr_1" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPAddr_1"-->">.
+              <INPUT name="IPAddr_2" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPAddr_2"-->">.
+              <INPUT name="IPAddr_3" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPAddr_3"-->">
+            </td>
+          </tr>    
+          <tr>
+            <td><B>Subnet mask:</B></td>
+            <td>
+              <INPUT name="IPMask_0" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPMask_0"-->">.
+              <INPUT name="IPMask_1" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPMask_1"-->">.
+              <INPUT name="IPMask_2" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPMask_2"-->">.
+              <INPUT name="IPMask_3" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPMask_3"-->">
+            </td>
+          </tr>
+          <tr>
+            <td><B>Gateway:</B></td>
+            <td>
+              <INPUT name="IPGateway_0" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPGateway_0"-->">.
+              <INPUT name="IPGateway_1" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPGateway_1"-->">.
+              <INPUT name="IPGateway_2" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPGateway_2"-->">.
+              <INPUT name="IPGateway_3" TYPE="text" SIZE="2" MAXLENGTH="3" value="<!--#exec cgi="IPGateway_3"-->">
+            </td>
+          </tr>
+          <tr>
+            <td COLSPAN="2">
+              <table>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <input type="submit" value="Apply" name = "SetIP">
+        </form>
+
+    </div>
+    
+    
+    <img src="Logo.gif" alt="Segger company logo" class="logo">  
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

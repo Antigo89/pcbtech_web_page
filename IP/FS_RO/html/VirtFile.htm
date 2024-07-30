@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual file sample</title>
+    <link href="Styles.css" rel="stylesheet">
+  </head>
+    <body>
+    <header>Virtual file sample</header>
+    <div class="content">
+      <form action="Send.cgi" method="GET">
+        <label for="FirstName">First name: </label><input name="FirstName" type="text" size="30" maxlength="30" value="<!--#exec cgi="FirstName"-->">&nbsp;
+        <label for="LastName">Last name: </label><input name="LastName"  type="text" size="30" maxlength="30" value="<!--#exec cgi="LastName"-->">&nbsp;
+        <input type="submit" value="Change">
+      </form>
+    </div>
+    <img src="Logo.gif" alt="Segger company logo" class="logo">  
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

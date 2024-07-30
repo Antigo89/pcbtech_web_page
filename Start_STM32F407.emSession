@@ -24,11 +24,11 @@
   <ProjectSessionItem path="Start_STM32F407"/>
   <ProjectSessionItem path="Start_STM32F407;Start_STM32F407"/>
   <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;Application"/>
-  <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;DeviceSupport"/>
-  <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;Doc"/>
+  <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;IP"/>
+  <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;IP;FS_RO"/>
+  <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;Lib"/>
   <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;SEGGER"/>
   <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;Setup"/>
-  <ProjectSessionItem path="Start_STM32F407;Start_STM32F407;USBD"/>
  </Project>
  <Register1>
   <RegisterWindow visibleNodes="GPIOE/MODER;GPIOE/OTYPER;GPIOE/OSPEEDR;GPIOE/PUPDR;GPIOE/IDR;GPIOE/ODR;GPIOE/BSRR;GPIOE/LCKR;GPIOE/AFRL;GPIOE/AFRH" binaryNodes="" asciiNodes="" openNodes="GPIOE;GPIOE/IDR" name="Start_STM32F407_Debug" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -61,7 +61,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="17" y="33" useTextEdit="1" path="Application/main.c" left="0" selected="1" top="30" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="35" useTextEdit="1" path="Application/main.c" left="0" selected="1" top="0" codecName="Default"/>
  </Files>
- <EMStudioWindow activeProject="Start_STM32F407" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="D:/Proj/ARM/Kurs_STM32/week8/USB_OTG/Application" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <EMStudioWindow activeProject="Start_STM32F407" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="D:/Proj/ARM/Kurs_STM32/week9/IP/IP/FS_RO/Generated" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

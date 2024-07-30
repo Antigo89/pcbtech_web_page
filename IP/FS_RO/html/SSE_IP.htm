@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>emNet statistics (SSE)</title>
+    <link href="Styles.css" rel="stylesheet">
+    <script src="events.js"></script>
+  </head>
+  <body>
+    <header>emNet statistics (SSE)</header>
+    <div id="emNet" class="content"></div>
+    <script>
+      if(typeof(EventSource) !== "undefined") {
+        var source = new EventSource("SSENet.cgi");
+        source.onmessage = function(event) {
+          document.getElementById("emNet").innerHTML = event.data + "<br>The data above shows some real time information of the network stack used.<br>The sample uses Server-Sent Events (SSE). The server sends updated information automatically to the web browser every 500ms. A page reload is not necessary. Information about your application can easily be displayed in the same way.";
+        };
+      } else {
+        document.getElementById("emNet").innerHTML = "Sorry, your browser does not support Server-Sent Events (SSE)...";
+      }
+    </script>
+    <img src="Logo.gif" alt="Segger company logo" class="logo">  
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

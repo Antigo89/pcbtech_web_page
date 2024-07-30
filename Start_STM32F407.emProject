@@ -66,17 +66,14 @@
       arm_fpu_type="FPv4-SP-D16"
       arm_target_device_name="STM32F407VE"
       arm_target_interface_type="SWD"
-      c_system_include_directories="$(StudioIncDir:$(StudioDir)/include);$(ProjectDir)/Inc;$(ProjectDir)/SEGGER;$(ProjectDir)/IP"
+      c_system_include_directories="$(StudioIncDir:$(StudioDir)/include);$(ProjectDir)/Inc;$(ProjectDir)/SEGGER;$(ProjectDir)/IP;$(ProjectDir)/IP/FS_RO;$(ProjectDir)/IP/FS_RO/Generated"
       debug_target_connection="J-Link"
       linker_memory_map_file="$(ProjectDir)/Setup/STM32F407VETx_MemoryMap.xml"
       linker_section_placements_segments="FLASH1 RX 0x08000000 0x00080000;RAM1 RWX 0x20000000 0x00020000;" />
     <folder Name="Application">
-      <file file_name="Application/IP_Start.c" />
+      <file file_name="Application/IP_WebserverSample.c" />
       <file file_name="Application/main.c">
         <configuration Name="Debug" build_exclude_from_build="No" />
-      </file>
-      <file file_name="Application/OS_StartLEDBlink.c">
-        <configuration Name="Debug" build_exclude_from_build="Yes" />
       </file>
     </folder>
     <folder Name="DeviceSupport">
@@ -99,6 +96,57 @@
       </file>
     </folder>
     <folder Name="IP">
+      <folder Name="FS_RO">
+        <folder Name="Generated">
+          <file file_name="IP/FS_RO/Generated/About.c" />
+          <file file_name="IP/FS_RO/Generated/Authen.c" />
+          <file file_name="IP/FS_RO/Generated/BGround.c" />
+          <file file_name="IP/FS_RO/Generated/BTL_Det.c" />
+          <file file_name="IP/FS_RO/Generated/BTL_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/Empty.c" />
+          <file file_name="IP/FS_RO/Generated/Error404.c" />
+          <file file_name="IP/FS_RO/Generated/events.c" />
+          <file file_name="IP/FS_RO/Generated/favicon.c" />
+          <file file_name="IP/FS_RO/Generated/FormGET.c" />
+          <file file_name="IP/FS_RO/Generated/FormPOST.c" />
+          <file file_name="IP/FS_RO/Generated/FS_Det.c" />
+          <file file_name="IP/FS_RO/Generated/FS_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/GreenRUp.c" />
+          <file file_name="IP/FS_RO/Generated/GUI_Det.c" />
+          <file file_name="IP/FS_RO/Generated/GUI_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/index.c" />
+          <file file_name="IP/FS_RO/Generated/IP_Det.c" />
+          <file file_name="IP/FS_RO/Generated/IP_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/IPConf.c" />
+          <file file_name="IP/FS_RO/Generated/IPInf.c" />
+          <file file_name="IP/FS_RO/Generated/jquery.c" />
+          <file file_name="IP/FS_RO/Generated/Logo.c" />
+          <file file_name="IP/FS_RO/Generated/OS_Det.c" />
+          <file file_name="IP/FS_RO/Generated/OS_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/OSInf.c" />
+          <file file_name="IP/FS_RO/Generated/Products.c" />
+          <file file_name="IP/FS_RO/Generated/RedRDown.c" />
+          <file file_name="IP/FS_RO/Generated/RGraphCC.c" />
+          <file file_name="IP/FS_RO/Generated/RGraphCE.c" />
+          <file file_name="IP/FS_RO/Generated/RGraphLi.c" />
+          <file file_name="IP/FS_RO/Generated/SendMail.c" />
+          <file file_name="IP/FS_RO/Generated/Shares.c" />
+          <file file_name="IP/FS_RO/Generated/SSE_IP.c" />
+          <file file_name="IP/FS_RO/Generated/SSE_OS.c" />
+          <file file_name="IP/FS_RO/Generated/SSE_Time.c" />
+          <file file_name="IP/FS_RO/Generated/Styles.c" />
+          <file file_name="IP/FS_RO/Generated/Upl.c" />
+          <file file_name="IP/FS_RO/Generated/Upl_AJAX.c" />
+          <file file_name="IP/FS_RO/Generated/USBD_Det.c" />
+          <file file_name="IP/FS_RO/Generated/USBD_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/USBH_Det.c" />
+          <file file_name="IP/FS_RO/Generated/USBH_Pic.c" />
+          <file file_name="IP/FS_RO/Generated/VirtFile.c" />
+          <file file_name="IP/FS_RO/Generated/WhiteR.c" />
+        </folder>
+        <file file_name="IP/FS_RO/IP_FS_ReadOnly.c" />
+        <file file_name="IP/FS_RO/Webserver_DynContent.c" />
+      </folder>
       <file file_name="IP/BSP_IP.c" />
       <file file_name="IP/BSP_IP.h" />
       <file file_name="IP/IP.h" />

@@ -1,0 +1,37 @@
+body { width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 40px; padding:0px; background:#6699CC url(BGround.png) repeat-x; font-family:Verdana, Helvetica, sans-serif; font-size:11px; color:black; }
+header { box-shadow: 8px 8px 10px 1px #000000; border-radius: 5px; background-color: #6699CC; border: thin solid #000000; padding: 10px; margin: 30px 10px; text-align: center; font-size: 30px; font-weight: bold; }
+div { background: white; }
+.content { position:relative; border-radius: 5px; margin: 25px 10px; padding: 30px; box-shadow: 8px 8px 10px 1px #000000; color:black; }
+.logo { box-shadow: 8px 8px 10px 1px #000000; float: left; margin-top: 5px; margin-bottom: 0px; margin-left: 10px; margin-right: 20px; }
+.Description { background-color:#efefef; border:1px solid #000000; padding: 10px; position:absolute; top:430px; left:400px; width:320px; }
+.Description b { text-decoration: underline; }
+.thumbnails{ width: 180px; margin-left: 20px; }
+.details{ position: absolute; margin-top: 20px; margin-left: 220px; width: 480px; }
+.description p { padding: 20px; marging: 20px; }
+.shares table { position:relative; }
+.shares tr { height: 26px; }
+.shares th { background-color:#DCDCDC; }
+.Up td { background-color: #94C12D; }
+.Down td { background-color: #FFC1C1; }
+.PointerDown { background: url(RedRDown.gif) no-repeat center; }
+.PointerUp { background: url(GreenRUp.gif) no-repeat center; }
+.PointerRight { background: url(WhiteR.gif) no-repeat center; }
+footer { box-shadow: 8px 8px 10px 1px #000000; border-radius: 5px; background: white; margin: 30px 10px 10px 140px; height: 60px; text-align: center; border: thin solid #000000; }
+.hint { font-size: x-small; font-style: italic; }
+table { border: thin solid #000000; border-spacing: 0px; }
+th { border:thin solid #000000; padding: 2px; font-weight: bold; font-size:12px; text-align: left; }
+td { border:thin solid #000000; font-size:12px; padding: 2px; text-align: right; }
+.frame table { border-collapse: collapse; background-color: #FFFFFF; }
+.percentage table { border-collapse: collapse; background-color: #FFFFFF; }
+.percentage td { background-color: #00ff00; border-color: #00FF00; }
+.proportion table { border-color: #FFFFFF; width:100%; }
+.proportion td { border-color: #FFFFFF; text-align: left; }
+.alignLeft { text-align: left; }
+.info { float: left; }
+.colon { float: left; margin-left: 5px; }
+.value { margin-left: 180px; width: 120px; }
+A:link { font-weight:bold; color:black; text-decoration:none; }
+A:visited { font-weight:bold; color:silver; text-decoration:none; }
+A:focus { font-weight:bold; color:black; text-decoration:underline; }
+A:hover { font-weight:bold; color:silver; text-decoration:none; }
+A:active { font-weight:bold; color:black; text-decoration:underline; }

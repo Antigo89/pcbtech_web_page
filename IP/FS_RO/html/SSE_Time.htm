@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Server-Sent Events (SSE) example</title>
+    <link href="Styles.css" rel="stylesheet">
+    <script src="events.js"></script>
+    <script>
+      if(typeof(EventSource) !== "undefined") {
+        var source = new EventSource("SSETime.cgi");
+        source.onmessage = function(event) {
+          document.getElementById("SysTime").innerHTML  = "<h2>" + event.data + "</h2>";
+          document.getElementById("SysTime").innerHTML += "The browser gets the system time via Server-Sent Events (SSE).<br>No meta refresh (reload) required!";
+        };
+      } else {
+        document.getElementById("SysTime").innerHTML = "Sorry, your browser does not support Server-Sent Events (SSE)...";
+      }
+    </script>
+  </head>
+  <body>
+    <header>Server-Sent Events (SSE) example </header>
+    <div id="SysTime" class="content"><br></div>
+    <img src="Logo.gif" alt="Segger logo" class="logo">
+    <footer>
+       <p><a href="index.htm">Back to main</a></p>
+       <p>SEGGER Microcontroller GmbH || <a href="http://www.segger.com">www.segger.com</a> <span class="hint">(external link)</span> </p>
+    </footer>
+  </body>
+</html>

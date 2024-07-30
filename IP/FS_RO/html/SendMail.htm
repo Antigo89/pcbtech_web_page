@@ -1,0 +1,60 @@
+<HTML>
+  <HEAD>
+    <TITLE>Function using paramters sample</TITLE>    
+    <style type="text/css">
+     H1, H2, H3, H4 { color: blue }
+     H1, H2, H3, H4, H5 { font-family: Helvetica;}
+     PRE {  color: black;  margin-left: 2%; ; font-size=150%}
+     BODY { color: black;  margin-left: 2%; font-family: courier; font-size=75%}
+    </style>
+    <script type="text/javascript"><!-- 
+    var NumBytes = 256;     /* Size of buffer allocated for parameter passing in web server  (WEBS_PARA_BUFFER_SIZE) 
+                                                                           The required buffer size is a combination of the possible length of all user inputs and the 
+                                                                           the protocol overhead (Length of all variable names + 2 * number of variable - 1) */
+    function Cnt(Field){
+      /* Add every text input field which should be  considered to array */ 
+      var CntNodes    = new Array( window.document.SMTPInput.Srv, 
+                                   window.document.SMTPInput.User, 
+                                   window.document.SMTPInput.PW, 
+                                   window.document.SMTPInput.SAddr, 
+                                   window.document.SMTPInput.ReNa, 
+                                   window.document.SMTPInput.RAddr );
+      var NumBytesRem = NumBytes;
+      for (var i = 0; i < CntNodes.length; i++) {
+        NumBytesRem -= CntNodes[i].value.length;
+      }
+      if (NumBytesRem < 0) {
+        Field.value = Field.value.substring(0, Field.value.length + NumBytesRem);
+        NumBytesRem = 0;
+      }
+      document.SMTPInput.Len.value = NumBytesRem; 
+    } 
+    //--> </script>    
+  </HEAD>
+  <BODY>
+    <HR>
+    <h1>SMTP sample</h1>
+    <FORM ACTION="Send.cgi" METHOD="GET" NAME="SMTPInput">
+      <P>
+        <H3>Configuration</H3>
+        <B>Server&nbsp;&nbsp;:</B>           <INPUT name="Srv"  TYPE="text"     SIZE="34" MAXLENGTH="32" onfocus="this.value = 'Example: mail.yourdomain.com'" onkeyup="Cnt(this);"><BR>
+        <B>User&nbsp;&nbsp;&nbsp;&nbsp;:</B> <INPUT name="User" TYPE="text"     SIZE="34" MAXLENGTH="32" onfocus="this.value = 'Your username'"                 onkeyup="Cnt(this);"><BR>
+        <B>Password:</B>                     <INPUT name="PW"   TYPE="password" SIZE="34" MAXLENGTH="32" onfocus="this.value = 'test'"                          onkeyup="Cnt(this);">
+      </p>
+      <p>
+        <H3>email</H3>
+        <B>Sender email&nbsp;&nbsp;&nbsp;:</B> <INPUT name="SAddr" TYPE="text" SIZE="34" MAXLENGTH="32" onfocus="this.value = 'Example: info@yourdomain.com'"  onkeyup="Cnt(this);"><BR>                
+        <B>Recipient name&nbsp;:</B>           <INPUT name="ReNa"  TYPE="text" SIZE="34" MAXLENGTH="32" onfocus="this.value = 'Example: John Doo'"             onkeyup="Cnt(this);"><BR>
+        <B>Recipient email:</B>                <INPUT name="RAddr" TYPE="text" SIZE="34" MAXLENGTH="32" onfocus="this.value = 'Example: jd@yourdomain.com'"    onkeyup="Cnt(this);"><BR>
+      </p>  
+      <B>Chars left:</B><input name="Len" value="256" SIZE="4">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <INPUT TYPE="submit" VALUE="Send">     
+    </FORM>
+    <HR>  
+    <CENTER>
+      <A HREF="index.htm">Back to main</A>
+    </CENTER>
+    <IMG SRC="Logo.gif" ALT="Segger logo">&nbsp;&nbsp; SEGGER Microcontroller GmbH &nbsp;&nbsp;<A HREF="http://www.segger.com">www.segger.com</A>
+  </BODY>
+</HTML>
